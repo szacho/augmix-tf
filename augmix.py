@@ -4,7 +4,7 @@ import tensorflow_probability as tfp
 from transformations import *
 
 class AugMix:
-    def __init__(self, means, stds):
+    def __init__(self, means=[0, 0, 0], stds=[1, 1, 1]):
         self.means = np.array(means)
         self.stds = np.array(stds)
 
