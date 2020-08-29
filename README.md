@@ -12,10 +12,10 @@ AugMix utilizes simple augmentation operations which are stochastically sampled 
 
 ## Usage
 ### AugMix
-The main function, which does the augmentation is AugMix.process, let's print a docstring of it. 
+The main function, which does the augmentation is AugMix.transform, let's print a docstring of it. 
 ```python
 from augmix import AugMix
-print(AugMix.process.__doc__)
+print(AugMix.transform.__doc__)
 ```
 ```
 	Performs AugMix data augmentation on given image.
@@ -38,10 +38,10 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from augmix import AugMix
 
-# means and stds calculation in appendix
+# precalculated means and stds of the dataset (in RGB order)
 means = [0.44892993872313053, 0.4148519066242368, 0.301880284715257]
 stds = [0.24393544875614917, 0.2108791383467354, 0.220427056859487]
-augmix_transformer = AugMix(means, stds)
+ag = AugMix(means, stds)
 
 # preprocess
 image = np.asarray(Image.open('geranium.jpg'))
@@ -51,7 +51,7 @@ image = tf.image.resize(image, (331, 331)) # resize to square
 image /=  255  # scale to [0, 1]
 
 # augment
-augmented = augmix_transformer.process(image)
+augmented = ag.transform(image)
 
 # visualize
 comparison = tf.concat([image, augmented], axis=1)
@@ -65,13 +65,13 @@ plt.show()
 ```python
 # here a dataset is a tf.data.Dataset object
 # assuming images are properly preprocessed (see example 1)
-dataset = dataset.map(lambda  img: augmix.process(img))
+dataset = dataset.map(lambda  img: ag.transform(img))
 ```
 **Example 3** - transforming a dataset to use with the Jensen-Shannon loss
 ```python
 # here a dataset is a tf.data.Dataset object
 # assuming images are properly preprocessed (see example 1)
-dataset = dataset.map(lambda  img: (img, augmix.process(img), augmix.process(img)))
+dataset = dataset.map(lambda  img: (img, ag.transform(img), ag.transform(img)))
 ```
 ## Visualization
 
@@ -83,7 +83,7 @@ dataset = dataset.map(lambda  img: (img, augmix.process(img), augmix.process(img
 ![visualization of augmix](/images/augmented.png?raw=true)
 
 ### Simple transformations
-AugMix mixes images transformed by simple augmentations defined in ```transformations.py``` file. Every transformation function takes an image and level parameter that determines a strength of this transformation. This level parameter has the same value as severity parameter in AugMix.process function, so again it is the integer between 1 and 10, where 10 means the strongest augmentation. These functions can be used by itself. Below is a visualization what every simple augmentation does to a batch of images (at level 10). 
+AugMix mixes images transformed by simple augmentations defined in ```transformations.py``` file. Every transformation function takes an image and level parameter that determines a strength of this transformation. This level parameter has the same value as severity parameter in AugMix.transform function, so again it is the integer between 1 and 10, where 10 means the strongest augmentation. These functions can be used by itself. Below is a visualization what every simple augmentation does to a batch of images (at level 10). 
 
 
 

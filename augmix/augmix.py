@@ -1,6 +1,6 @@
 import tensorflow as tf, tensorflow.keras.backend as K
 import tensorflow_probability as tfp
-from transformations import *
+from .transformations import *
 
 class AugMix:
     def __init__(self, means=[0, 0, 0], stds=[1, 1, 1]):
@@ -28,7 +28,7 @@ class AugMix:
         augmented = tf.cond(which == tf.constant([12], dtype=tf.int32), lambda: brightness(image, level), lambda: augmented)
         return augmented
 
-    def process(self, image, severity=3, width=3, depth=-1):
+    def transform(self, image, severity=3, width=3, depth=-1):
         """ 
         Performs AugMix data augmentation on given image.
 
