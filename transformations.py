@@ -1,4 +1,4 @@
-import numpy as np
+import math
 import tensorflow as tf, tensorflow.keras.backend as K
 from helpers import *
 
@@ -7,7 +7,8 @@ def rotate(image, level):
     rand_var = tf.random.uniform(shape=[], dtype=tf.float32)
     degrees = tf.cond(rand_var > 0.5, lambda: degrees, lambda: -degrees)
 
-    angle = np.pi*degrees/180 # convert degrees to radians
+    pi = tf.constant(math.pi)
+    angle = pi*degrees/180 # convert degrees to radians
     angle = tf.cast(angle, tf.float32)
     # define rotation matrix
     c1 = tf.math.cos(angle)

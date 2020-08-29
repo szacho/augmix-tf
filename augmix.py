@@ -1,12 +1,11 @@
-import numpy as np
 import tensorflow as tf, tensorflow.keras.backend as K
 import tensorflow_probability as tfp
 from transformations import *
 
 class AugMix:
     def __init__(self, means=[0, 0, 0], stds=[1, 1, 1]):
-        self.means = np.array(means)
-        self.stds = np.array(stds)
+        self.means = tf.constant(means)
+        self.stds = tf.constant(stds)
 
     def normalize(self, image):
         image = (image-self.means)/self.stds
