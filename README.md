@@ -5,10 +5,7 @@ AugMix utilizes simple augmentation operations which are stochastically sampled 
 ![AugMix pipeline](https://i.ibb.co/YNfsHPF/Capture.png)
 
 ## Installation
-**Pip package will be available soon... for now do this:**
-1. Download ```augmix.py, transformations.py, helpers.py```.
-2. Import AugMix class from ```augmix.py```.
-3. See examples of usage below.
+```pip install augmix-tf```
 
 ## Usage
 ### AugMix
@@ -126,7 +123,6 @@ AugMix mixes images transformed by simple augmentations defined in ```transforma
  ## TODO
  - batch implementation of AugMix
  - possibility to choose basic transformations easily
- - pip package
  - appendix
 	 - calculation of mean and standard devation on a dataset
 	 - implementation of Jensen-Shannon Divergence Consistency Loss
