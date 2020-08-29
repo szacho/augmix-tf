@@ -77,10 +77,10 @@ dataset = dataset.map(lambda  img: (img, ag.transform(img), ag.transform(img)))
 
 ### AugMix
 **original images**
-![original images](/images/original.png?raw=true)
+![original images](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/original.png)
 
 **augmented**
-![visualization of augmix](/images/augmented.png?raw=true)
+![visualization of augmix](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/augmented.png)
 
 ### Simple transformations
 AugMix mixes images transformed by simple augmentations defined in ```transformations.py``` file. Every transformation function takes an image and level parameter that determines a strength of this transformation. This level parameter has the same value as severity parameter in AugMix.transform function, so again it is the integer between 1 and 10, where 10 means the strongest augmentation. These functions can be used by itself. Below is a visualization what every simple augmentation does to a batch of images (at level 10). 
@@ -88,37 +88,37 @@ AugMix mixes images transformed by simple augmentations defined in ```transforma
 
 
 **translate_x, translate_y**
-![translate](/images/translate.png?raw=true)
+![translate](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/translate.png)
 
 **rotate**
-![rotate](/images/rotate.png?raw=true)
+![rotate](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/rotate.png)
 
 **shear_x, shear_y**
-![shear](/images/shear.png?raw=true)
+![shear](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/shear.png)
 
 **solarize**
-![solarize](/images/solarize.png?raw=true)
+![solarize](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/solarize.png)
 
 **solarize_add**
-![solarize add](/images/solarize_add.png?raw=true)
+![solarize add](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/solarize_add.png)
 
 **posterize**
-![posterize](/images/posterize.png?raw=true)
+![posterize](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/posterize.png)
 
 **autocontrast**
-![autocontrast](/images/autocontrast.png?raw=true)
+![autocontrast](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/autocontrast.png)
 
 **contrast**
-![contrast](/images/contrast.png?raw=true)
+![contrast](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/contrast.png)
 
 **equalize**
-![equalize](/images/equalize.png?raw=true)
+![equalize](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/equalize.png)
 
 **brightness**
-![brightness](/images/brightness.png?raw=true)
+![brightness](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/brightness.png)
 
 **color**
-![color](/images/color.png?raw=true)
+![color](https://raw.githubusercontent.com/szacho/augmix-tf/master/images/color.png)
 
 ## More information
 - [AugMix paper](https://arxiv.org/pdf/1912.02781.pdf)
@@ -132,4 +132,4 @@ AugMix mixes images transformed by simple augmentations defined in ```transforma
 	 - implementation of Jensen-Shannon Divergence Consistency Loss
  
  ## License
-Augmix-tf is released under MIT License. 
+MIT
