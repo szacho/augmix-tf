@@ -9,7 +9,7 @@ class AugMix:
 
     def normalize(self, image):
         image = (image-self.means)/self.stds
-        return tf.clip_by_value(image, 0, 1)
+        return image
         
     def apply_op(self, image, level, which): 
         augmented = image
@@ -79,5 +79,5 @@ class AugMix:
         i, depth, mix = tf.while_loop(outer_loop_cond, outer_loop_body, [i, depth, mix])
         
         mixed = tf.math.scalar_mul((1 - m), self.normalize(image)) + tf.math.scalar_mul(m, mix)
-        return tf.clip_by_value(mixed, 0, 1)
+        return mixed
     
