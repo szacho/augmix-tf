@@ -1,4 +1,6 @@
 # augmix-tf
+> **NOTE**: this implementation is no longer supported, you can use https://github.com/keras-team/keras-cv/pull/407 as a replacement (it's based on this repo).
+
 Augmix-tf is an implementation of novel data augmentation [AugMix (2020)]([https://arxiv.org/pdf/1912.02781.pdf](https://arxiv.org/pdf/1912.02781.pdf)) in TensorFlow.  It runs on TPU. 
 
 AugMix utilizes simple augmentation operations which are stochastically sampled and layered to produce a high diversity of augmented images. The process of mixing basic tranformations into augmented image is shown below (picture taken from the original paper). This augmentation performs better when used in concert with Jensen-Shannon Divergence Consistency Loss.
